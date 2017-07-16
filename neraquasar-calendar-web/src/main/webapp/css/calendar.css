@@ -1,0 +1,39 @@
+.calendar-cell td {
+    background-color: #fbffc7;
+    padding: 5px;
+    width: 100px;
+    max-width: 100px;
+    height: 100px;
+    max-height: 100px;
+}
+
+.calendar-cell td>div{
+    background-color: #64c366;
+    height: inherit;
+}
+
+.calendar-cell td>div>div{
+    background-color: #64c366;
+    position: relative;
+}
+
+.calendar-cell td>div>div>div{
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.calendar-cell td>div>div>div::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(100, 192, 102, 0.0), rgba(100, 192, 102, 1.0) );
+    /*background-color: yellow;*/
+}
+
+.calendar-head th {
+    background-color: #a9dedc;
+    padding: 5px;
+}
