@@ -21,6 +21,7 @@
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
+    background-color: yellow;
 }
 
 .calendar-cell td>div>div>div::after{
@@ -30,7 +31,6 @@
     width: 30px;
     height: 100%;
     background: linear-gradient(90deg, rgba(100, 192, 102, 0.0), rgba(100, 192, 102, 1.0) );
-    /*background-color: yellow;*/
 }
 
 .calendar-head th {
