@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping
 @Controller
 class IndexController {
 
-    @RequestMapping(value = "/org/neraquasar/calendar/index")
-    public fun index(model: Model): String {
-        return "index";
+    @RequestMapping(value = "/")
+    fun index(model: Model): String {
+        return "index"
     }
 }

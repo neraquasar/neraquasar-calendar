@@ -8,15 +8,15 @@ import org.springframework.context.annotation.Import;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
-import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 /**
+ *
+ *
  * @author Konstantin Valer'evich Dichenko
  * Created 15.08.2017
  */
@@ -24,7 +24,7 @@ import javax.servlet.ServletRegistration;
 @ComponentScan("org.neraquasar.calendar")
 @Import(
         {
-                ThymeleafConfig.class
+                AppConfig.class
         })
 public class DefaultWebAppInitializer implements WebApplicationInitializer {
 
@@ -36,12 +36,12 @@ public class DefaultWebAppInitializer implements WebApplicationInitializer {
         webAppContext.register(DefaultWebAppInitializer.class);
         servletContext.addListener(new ContextLoaderListener(webAppContext));
 
-        FilterRegistration.Dynamic security = servletContext.addFilter("springSecurityFilterChain", new DelegatingFilterProxy());
-        security.addMappingForUrlPatterns(null, false, "/*");
+//        FilterRegistration.Dynamic security = servletContext.addFilter("springSecurityFilterChain", new DelegatingFilterProxy());
+//        security.addMappingForUrlPatterns(null, false, "/*");
 
         webAppContext.setServletContext(servletContext);
-        ServletRegistration.Dynamic servlet = servletContext.addServlet("spring-mvc", new DispatcherServlet(webAppContext));
-        servlet.addMapping("/webapp/templates/*");
+        ServletRegistration.Dynamic servlet = servletContext.addServlet("dispatcher-servlet", new DispatcherServlet(webAppContext));
+        servlet.addMapping("/*");
         servlet.setLoadOnStartup(1);
     }
 }
